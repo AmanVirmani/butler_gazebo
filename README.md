@@ -20,7 +20,7 @@ The presentation for this project can be found [here](.).
 ## Project Design
 
 The team followed the AIP process and pair programming.  The AIP iteration actions are documented [here](https://docs.google.com/spreadsheets/d/1O8GisJ7VpNulYqH-gaPCvG_NAVHMwOyPO4F18fhpBL4/edit?ts=5ddb0c09#gid=0).  
-The overall project design followed Object-Oriented programming paradigm.  The design is documented in the following [Activity](./UML/) and [Class Hierarchy](./UML/) UML Diagrams.  
+The overall project design followed Object-Oriented programming paradigm.  The design is documented in the following [Activity](./UML/initial/ActivityDiagram.pdf/) and [Class Hierarchy](./UML/initial/ClassDiagram.pdf) UML Diagrams.  
 Planning and review notes during each development iteration can be found [here](https://docs.google.com/document/d/1aiRbswW5R_R5Iiowr5hDhnN0nU_4OwQu9OM1Oh6o9Pk)
 
 
