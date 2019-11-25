@@ -12,8 +12,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * @brief Butler demo header file
  */
 #ifndef INCLUDE_BUTLERDEMO_H_
-#include<iostream>
+
 #include <ros/ros.h>
+#include<iostream>
 
 class ButlerDemo {
  public:
