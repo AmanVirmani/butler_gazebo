@@ -10,7 +10,7 @@ This project implements a material handling robot simulation inspired by an auto
 Our approach is to develop a Butler robot simulation in which the robot picks-up and delivers objects from and to known stations upon an unknown user or system generated order being issued.  Assuming a environment map known at priori, our Butler robot uses the TurtleBot robot as its base platform and uses its distance measurement sensor to dynamically avoid obstacles as it follows its trajectory for delivering object from the collection station to a destination station.  The robot starts and ends its delivery cycle at a home or charging station location.  
 The robotic system pre-plans a potential optimal trajectory for navigation. To show the successful pick-up and delivery of the objects by the robot, at the pickup location the Butler will publish a message indicating the pickup action and the object will disappear from the collection station; similarly, at the destination location the Butler will publish a message indicating the delivery action and the object will appear at the destination location.  
 
-The presentation for this project can be found [here](./add/link.here).
+The presentation for this project can be found [here](.).
 
 ## Team
 - **Aman Virmani**:
@@ -19,9 +19,9 @@ The presentation for this project can be found [here](./add/link.here).
 
 ## Project Design
 
-The team followed the AIP process and pair programming.  The AIP iteration actions are documented [here](https:://addlink.here).  
-The overall project design followed Object-Oriented programming paradigm.  The design is documented in the following [Activity](http:??) and [Class Hierarchy](http://xxx.yyy) UML Diagrams.  
-Planning and review notes during each development iteration can be found [here](./link/here)
+The team followed the AIP process and pair programming.  The AIP iteration actions are documented [here](https://docs.google.com/spreadsheets/d/1O8GisJ7VpNulYqH-gaPCvG_NAVHMwOyPO4F18fhpBL4/edit?ts=5ddb0c09#gid=0).  
+The overall project design followed Object-Oriented programming paradigm.  The design is documented in the following [Activity](./UML/) and [Class Hierarchy](./UML/) UML Diagrams.  
+Planning and review notes during each development iteration can be found [here](https://docs.google.com/document/d/1aiRbswW5R_R5Iiowr5hDhnN0nU_4OwQu9OM1Oh6o9Pk)
 
 
 ## Dependencies
