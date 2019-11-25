@@ -13,8 +13,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  */
 #ifndef INCLUDE_BUTLERORDER_H_
 
-#include<iostream>
 #include <ros/ros.h>
+#include<iostream>
 
 class Order {
  public:
