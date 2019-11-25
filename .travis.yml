@@ -1,0 +1,23 @@
+language: generic
+services:
+  - docker
+
+env:
+  matrix:
+    - ROS_DISTRO="kinetic"
+
+before_install:
+  - sudo apt-get install -y lcov
+
+install:
+  - gem install coveralls-lcov
+  - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci
+script:
+  - .industrial_ci/travis.sh
+after_success:
+  - cd ~/catkin_ws/build
+  - lcov --directory . --capture --output-file coverage.info
+  - lcov --remove coverage.info '/opt/*' '/usr/*'  --output-file coverage.info
+  - lcov --list coverage.info
+  - coveralls-lcov  coverage.info
+  #- coveralls-lcov --repo-token ${COVERALLS_REPO_TOKEN} coverage.info
