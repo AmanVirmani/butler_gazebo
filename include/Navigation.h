@@ -12,6 +12,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * @brief Navigation header file
  */
 #ifndef INCLUDE_NAVIGATION_H_
+#define INCLUDE_NAVIGATION_H_
 
 #include <ros/ros.h>
 #include<iostream>
@@ -29,7 +30,13 @@ class Navigation {
    * @param  current location and the destination of the robot      
    * @return boolean giving whether destination is reached          
    */                                                               
-  bool isDestinationReached(int currentLocation, int destination);  
+  bool isDestinationReached(double x_destination, double y_destination);  
+   /**                                                               
+   * @brief  Initializes handler for Navigation                
+   * @param  none                                                   
+   * @return none                                                   
+   */                                                               
+  void init(int argc, char** argv);                                                      
   /**                                                               
    * @brief  moves robot when no obstacle is present                
    * @param  none                                                   
@@ -69,3 +76,4 @@ class Navigation {
    */
   void changeDirection();
 };
+#endif
