@@ -23,7 +23,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
    * @brief Variable that notifies if there's an obstacle present
    */
   bool obstaclePresent;
-  //ros::NodeHandle n;
  
    /**                                                               
    * @brief  moves robot when no obstacle is present                
