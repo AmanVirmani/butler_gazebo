@@ -11,31 +11,30 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * Created on 24 November 2019
  * @brief Order header file
  */
-#ifndef INCLUDE_BUTLERORDER_H_
-#define INCLUDE_BUTLERORDER_H_
 
 #include <ros/ros.h>
 #include <iostream>
-#include "WarehouseLocation.h"
-#include "LocalMap.h"
-
-class ButlerOrder {
- public:
+#include "ButlerOrder.h"
+ 
    /**
    * @brief Variable that defines the FROM  location of the order.
    */
-   static WarehouseLocation fromLoc;
+   //static WarehouseLocation fromLoc(0,0);
    /**
    * @brief Variable that defines the TO location of the order.
    */
-   static WarehouseLocation toLoc;
+  // WarehouseLocation toLoc(0,0);
 
-   ButlerOrder();
+  ButlerOrder::ButlerOrder(){
 
-  /**
+   WarehouseLocation toLoc(0,0);
+   WarehouseLocation fromLoc(0,0);
+ }
+
+ /**
    * @brief Variable that defines the current location of the bot.
    */
-  //int currentOrder;
+ // int currentOrder;
   /**
    * @brief Variables that defines the next destination.
    */
@@ -57,7 +56,25 @@ class ButlerOrder {
    * @param  Order message from butler
    * @return void
    */
-  std::pair<WarehouseLocation,WarehouseLocation> getOrder(LocalMap);
-//  std::string getOrder(LocalMap);
-};
-#endif
+  std::pair<WarehouseLocation,WarehouseLocation> ButlerOrder::getOrder(LocalMap mymap){
+ // std::string ButlerOrder::getOrder(LocalMap mymap){
+  char from;
+  char to;
+       std::cout<<"|-------------------------------|"<<std::endl;
+        std::cout<<"|ENTER FROM and TO locations from following options:"<<std::endl;
+        mymap.printLocTags();
+        //TODO MUST BE VALID ENTRY
+        std::cout <<"|FROM: ";
+        std::cin>>from;
+        auto f=mymap.getLoc(from);
+        std::cout << f.getX() << " " <<f.getY() << std::endl;
+        std::cout<< "|TO: ";
+        std::cin>>to;
+        auto t=mymap.getLoc(to);
+        std::cout << t.getX() << " " <<t.getY() << std::endl;
+        std::cout<<std::endl;
+        return std::make_pair(f,t);
+
+
+  }
+ 
