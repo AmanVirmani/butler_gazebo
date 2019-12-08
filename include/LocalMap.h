@@ -12,18 +12,39 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * @brief LocalMap header file
  */
 #ifndef INCLUDE_LOCALMAP_H_
+#define INCLUDE_LOCALMAP_H_
 
-#include<ros/ros.h>
-#include<iostream>
+#include <ros/ros.h>
+#include <iostream>
+#include <unordered_map>
+#include "WarehouseLocation.h"
 
 class LocalMap {
  public:
+  /**
+   * @brief Variable that contains the known rack locations of the warehouse
+   */
+  std::unordered_map<char, WarehouseLocation> warehouse_layout;
+  /**
+   * @brief  prints all known tags locations
+   * @param  none
+   * @return none
+   */
+  void printLocTags();
+
+/**
+   * @brief  prints all known warehouse locations with coordinates
+   * @param  none
+   * @return none
+   */
+  void printMapLayout();
+
   /**
    * @brief Variable that defines the current location of        the bot.
    */
   int mapServer[2];
   /**
-   * @brief  initiaizes the loca map
+   * @brief  initiaizes the local warehhouse map
    * @param  none
    * @return none
    */
@@ -33,11 +54,13 @@ class LocalMap {
    * @param  none
    * @return none
    */
-  void getMapMetadata():nav_msgs::MapMetaData;
+  void getMapMetadata();
+  
   /**
    * @brief  obtains the local map
    * @param  none
    * @return none
    */
-  void getLocalMap():nav_msgs::OccupancyGrid;
+  WarehouseLocation getLoc(char);
 };
+#endif
