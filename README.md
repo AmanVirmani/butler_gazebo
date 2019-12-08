@@ -31,7 +31,13 @@ Planning and review notes during each development iteration can be found [here](
 
 
 ## Running the Simulation Demo
+```
+roslaunch butler_gazebo butler_world.launch 
+roslaunch butler_gazebo amcl_demo.launch
+roslaunch butler_gazebo view_navigation.launch
 
+./devel/lib/butler_gazebo/butler_gazebo
+```
 ## Running the Simulation Demo with Rosbag enabled
 
 ## Running the Test Suite
