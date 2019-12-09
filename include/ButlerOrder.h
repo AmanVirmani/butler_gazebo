@@ -16,6 +16,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 #include <ros/ros.h>
 #include <iostream>
+#include <utility>
 #include "WarehouseLocation.h"
 #include "LocalMap.h"
 
@@ -24,40 +25,22 @@ class ButlerOrder {
    /**
    * @brief Variable that defines the FROM  location of the order.
    */
-   static WarehouseLocation fromLoc;
+  static WarehouseLocation fromLoc;
    /**
    * @brief Variable that defines the TO location of the order.
    */
-   static WarehouseLocation toLoc;
+  static WarehouseLocation toLoc;
+ /**
+   *@brief Constructor for the order; default location is set to zero.
+   */
 
-   ButlerOrder();
-
-  /**
-   * @brief Variable that defines the current location of the bot.
-   */
-  //int currentOrder;
-  /**
-   * @brief Variables that defines the next destination.
-   */
-  //bool orderFlag;
-  /**
-   * @brief Getter method for checking obstacle presence
-   * @param  none
-   * @return boolean giving obstacles presence
-   */
-  //bool getOrderFlag();
-  /**
-   * @brief Getter method for checking obstacle presence
-   * @param  none
-   * @return boolean giving obstacles presence
-   */
-  //void processOrder();
-  /**
+  ButlerOrder();
+ /**
    * @brief Getter method for order
-   * @param  Order message from butler
-   * @return void
+   * @param  LocalMap which carries all known bin values; used to retrieve 
+   *         requests based on tags
+   * @return std::make_pair
    */
-  std::pair<WarehouseLocation,WarehouseLocation> getOrder(LocalMap);
-//  std::string getOrder(LocalMap);
+  std::pair<WarehouseLocation, WarehouseLocation> getOrder(LocalMap);
 };
-#endif
+#endif  // INCLUDE_BUTLERORDER_H_
