@@ -28,17 +28,17 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
    * @return none
    */
   void LocalMap::initLocalMap(){
-    warehouse_layout.insert(std::make_pair('a', WarehouseLocation(-9.55,-5.55)));
-    warehouse_layout.insert(std::make_pair('b', WarehouseLocation(-4.55,-5.55)));
+    warehouse_layout.insert(std::make_pair('a', WarehouseLocation(-9.1,-4.1)));
+    warehouse_layout.insert(std::make_pair('b', WarehouseLocation(-5.39,-4.89)));
     warehouse_layout.insert(std::make_pair('c', WarehouseLocation(-1.55,-5.55)));
     warehouse_layout.insert(std::make_pair('d', WarehouseLocation(2.55,-5.55)));
-    warehouse_layout.insert(std::make_pair('e', WarehouseLocation(7.0,-5.55)));
-    warehouse_layout.insert(std::make_pair('f', WarehouseLocation(-9.55,-1.5)));
-    warehouse_layout.insert(std::make_pair('g', WarehouseLocation(-4.55,-1.5)));
-    warehouse_layout.insert(std::make_pair('h', WarehouseLocation(-1.55,-1.5)));
-    warehouse_layout.insert(std::make_pair('i', WarehouseLocation(2.55,-1.5)));
-    warehouse_layout.insert(std::make_pair('j', WarehouseLocation(7.0,-1.5)));
-    warehouse_layout.insert(std::make_pair('o', WarehouseLocation(0.7,1.1)));
+    warehouse_layout.insert(std::make_pair('e', WarehouseLocation(6.56,-5.86)));
+    warehouse_layout.insert(std::make_pair('f', WarehouseLocation(-7.7,-0.5)));
+    warehouse_layout.insert(std::make_pair('g', WarehouseLocation(-4.18,-1.26)));
+    warehouse_layout.insert(std::make_pair('h', WarehouseLocation(-0.46,-1.28)));
+    warehouse_layout.insert(std::make_pair('i', WarehouseLocation(3.52,-1.5)));
+    warehouse_layout.insert(std::make_pair('j', WarehouseLocation(7.0,-1.9)));
+    warehouse_layout.insert(std::make_pair('o', WarehouseLocation(0.78,0.15)));
 
  }
  /**
