@@ -16,75 +16,63 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   /**
    * @brief Variable that contains the known rack locations of the warehouse
    */
-  std::unordered_map<char, WarehouseLocation> warehouse_layout;
- 
-  /**
-   * @brief Variable that defines the current location of        the bot.
-   */
-  int mapServer[2];
+std::unordered_map<char, WarehouseLocation> warehouse_layout;
   /**
    * @brief  initiaizes the local warehhouse map with known stattion locations
    * @param  none
    * @return none
    */
-  void LocalMap::initLocalMap(){
-    warehouse_layout.insert(std::make_pair('a', WarehouseLocation(-9.1,-4.1)));
-    warehouse_layout.insert(std::make_pair('b', WarehouseLocation(-5.39,-4.89)));
-    warehouse_layout.insert(std::make_pair('c', WarehouseLocation(-1.55,-5.55)));
-    warehouse_layout.insert(std::make_pair('d', WarehouseLocation(2.55,-5.55)));
-    warehouse_layout.insert(std::make_pair('e', WarehouseLocation(6.56,-5.86)));
-    warehouse_layout.insert(std::make_pair('f', WarehouseLocation(-7.7,-0.5)));
-    warehouse_layout.insert(std::make_pair('g', WarehouseLocation(-4.18,-1.26)));
-    warehouse_layout.insert(std::make_pair('h', WarehouseLocation(-0.46,-1.28)));
-    warehouse_layout.insert(std::make_pair('i', WarehouseLocation(3.52,-1.5)));
-    warehouse_layout.insert(std::make_pair('j', WarehouseLocation(7.0,-1.9)));
-    warehouse_layout.insert(std::make_pair('o', WarehouseLocation(0.78,0.15)));
-
- }
+void LocalMap::initLocalMap() {
+  warehouse_layout.insert(std::make_pair('a', WarehouseLocation(-9.1, -4.1)));
+  warehouse_layout.insert(std::make_pair('b', WarehouseLocation(-5.39, -4.89)));
+  warehouse_layout.insert(std::make_pair('c', WarehouseLocation(-1.55, -5.55)));
+  warehouse_layout.insert(std::make_pair('d', WarehouseLocation(2.55, -5.55)));
+  warehouse_layout.insert(std::make_pair('e', WarehouseLocation(6.56, -5.86)));
+  warehouse_layout.insert(std::make_pair('f', WarehouseLocation(-7.7, -0.5)));
+  warehouse_layout.insert(std::make_pair('g', WarehouseLocation(-4.18, -1.26)));
+  warehouse_layout.insert(std::make_pair('h', WarehouseLocation(-0.46, -1.28)));
+  warehouse_layout.insert(std::make_pair('i', WarehouseLocation(3.52, -1.5)));
+  warehouse_layout.insert(std::make_pair('j', WarehouseLocation(7.0, -1.9)));
+  warehouse_layout.insert(std::make_pair('o', WarehouseLocation(0.78, 0.15)));
+}
  /**
    * @brief  prints all known warehouse locations with coordinates
    * @param  none
    * @return none
    */
-  void LocalMap::printMapLayout() {
-    std::unordered_map<char, WarehouseLocation>::iterator itr;
-    //std::unordered_map<std::string, WarehouseLocation>::iterator itr;
-    for (itr = warehouse_layout.begin(); itr != warehouse_layout.end(); itr++) {
-      std::cout << itr->first << " " << (itr->second).getX() <<" " << (itr->second).getY() << std::endl;
+void LocalMap::printMapLayout() {
+  std::unordered_map<char, WarehouseLocation>::iterator itr;
+  for (itr = warehouse_layout.begin(); itr != warehouse_layout.end(); itr++) {
+    std::cout << itr->first <<
+         " " << (itr->second).getX() <<
+         " " << (itr->second).getY() << std::endl;
     }
-
- }
- void LocalMap::printLocTags() {
-    std::vector<char> ktag;
-    ktag.reserve(warehouse_layout.size());
-    for (auto& it : warehouse_layout) {
-       ktag.push_back(it.first);
-    }
-    std::sort(ktag.begin(), ktag.end());
-    for (auto& k : ktag) {
-       std::cout << k << " ";
-    }
-     std::cout << std::endl;
-
- }
-
-
-  
-  /**
-   * @brief  obtains meta data from map
+}
+ /**
+   * @brief Prints all the available bin tags
    * @param  none
    * @return none
    */
-  void getMapMetadata();
-  /**
-   * @brief  obtains the local map
-   * @param  none
-   * @return none
+void LocalMap::printLocTags() {
+  std::vector<char> ktag;
+  ktag.reserve(warehouse_layout.size());
+  for (auto& it : warehouse_layout) {
+    ktag.push_back(it.first);
+  }
+  std::sort(ktag.begin(), ktag.end());
+  for (auto& k : ktag) {
+    std::cout << k << " ";
+  }
+  std::cout << std::endl;
+}
+ /**
+   * @brief  Returns a Warehouse Location based on the tag
+   * @param  char tad for the location station
+   * @return WarehouseLocation if location not found return home location
    */
-  WarehouseLocation LocalMap::getLoc(char tag){
-    std::cout << tag << "++++";
-    auto search = warehouse_layout.find(tag);
-   if ( search != warehouse_layout.end() )
-     return search->second;
-   return WarehouseLocation(6,7);
- }
+WarehouseLocation LocalMap::getLoc(char tag) {
+  auto search = warehouse_layout.find(tag);
+  if ( search != warehouse_layout.end())
+    return search->second;
+  return WarehouseLocation(0.78, 0.15);
+}

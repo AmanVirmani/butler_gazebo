@@ -40,27 +40,18 @@ class LocalMap {
   void printMapLayout();
 
   /**
-   * @brief Variable that defines the current location of        the bot.
-   */
-  int mapServer[2];
-  /**
    * @brief  initiaizes the local warehhouse map
    * @param  none
    * @return none
    */
   void initLocalMap();
-  /**
-   * @brief  obtains meta data from map
-   * @param  none
-   * @return none
+ /**
+   * @brief  Returns a Warehouse Location based on the tag
+   * @param  char tad for the location station
+   * @return WarehouseLocation if location not found return home location
    */
-  void getMapMetadata();
-  
-  /**
-   * @brief  obtains the local map
-   * @param  none
-   * @return none
-   */
+
   WarehouseLocation getLoc(char);
 };
-#endif
+#endif  //  INCLUDE_LOCALMAP_H_
+
