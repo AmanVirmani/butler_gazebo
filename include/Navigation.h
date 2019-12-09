@@ -18,62 +18,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include<iostream>
 
 class Navigation {
- private:
-  /**
-   * @brief Variable that notifies if there's an obstacle present
-   */
-  bool obstaclePresent;
- 
  public:
   /**
-   * @brief  Getter method for checking if destination is reached   
-   * @param  current location and the destination of the robot      
+   * @brief Method for checking if destination is reached   
+   * @param  destination x and y coordinate      
    * @return boolean giving whether destination is reached          
    */                                                               
-  bool isDestinationReached(double x_destination, double y_destination);  
+  bool isDestinationReached(double x_destination, double y_destination);
    /**                                                               
    * @brief  Initializes handler for Navigation                
    * @param  none                                                   
    * @return none                                                   
    */                                                               
-  void init(int argc, char** argv);                                                      
-  /**                                                               
-   * @brief  moves robot when no obstacle is present                
-   * @param  none                                                   
-   * @return none                                                   
-   */                                                               
-  void move();                                                      
-  /**                                                               
-   * @brief  gives a call back                                      
-   * @param  none                                                   
-   * @return none                                                   
-   */                                                               
-  void laserCallBack();                                             
-  /**
-   * @brief Variable that defines the current location of the bot.
-   */
-  int currentLocation;
-  /**
-   * @brief Variables that defines the next destination.
-   */
-  int destination;
-  /**
-   * @brief Getter method for checking obstacle presence
-   * @param  none
-   * @return boolean giving obstacles presence
-   */
-  bool isObstaclePresent();
-  /**
-   * @brief  gives the path planning algorithm
-   * @param  current location and the destination of the robot
-   * @return none
-   */
-  void getOptimalPath(int currentLocation, int destination);
-  /**
-   * @brief  Turns the robot when obstacle is present
-   * @param  none
-   * @return none
-   */
-  void changeDirection();
+  void init(int argc, char** argv);
 };
-#endif
+#endif  // INCLUDE_NAVIGATION_H_
