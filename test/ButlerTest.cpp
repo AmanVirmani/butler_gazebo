@@ -55,7 +55,7 @@ TEST(myTest, checkOrderType) {
 
 TEST(myTest, hasReachedDstType) {
 	Butler t;
-	int val[3] = t.hasReachedDst();
+	bool val[3] = t.hasReachedDst();
 	EXPECT_TRUE(typeid(val[3]), typeid(bool));
        }
 
