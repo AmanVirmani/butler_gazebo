@@ -58,4 +58,4 @@ TEST(myTest, hasReachedDstType) {
 	bool val[3] = t.hasReachedDst();
 	EXPECT_TRUE(typeid(val[3]), typeid(bool));
        }
-
+ 
