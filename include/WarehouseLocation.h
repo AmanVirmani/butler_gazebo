@@ -25,6 +25,7 @@ class WarehouseLocation {
    * @brief Variable that defines the y coordinate of a warehouse locaiton.
    */
   double y;
+
  public:
  /**
    * @brief Getter method for checking obstacle presence
@@ -32,8 +33,7 @@ class WarehouseLocation {
    * @param  double y an y coordinate
    * @return boolean giving obstacles presence
    */
-  
- WarehouseLocation(double x, double y);
+  WarehouseLocation(double x, double y);
   /**
    * @brief Getter method for the x coordinate
    * @param  none
@@ -47,4 +47,5 @@ class WarehouseLocation {
    */
   double getY();
 };
-#endif
+#endif  //  INCLUDE_WAREHOUSELOCATION_H_
+

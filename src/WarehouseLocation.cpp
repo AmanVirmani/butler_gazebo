@@ -13,32 +13,31 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 #include <iostream>
 #include "WarehouseLocation.h"
-  double x;
-  double y;
+double x;
+double y;
  /**
    * @brief Getter method for checking obstacle presence
    * @param  double x an x coordinate
    * @param  double y an y coordinate
    * @return boolean giving obstacles presence
    */
-  
- WarehouseLocation::WarehouseLocation(double new_x, double new_y) {
-     x = new_x;
-     y = new_y;
- }
+WarehouseLocation::WarehouseLocation(double new_x, double new_y) {
+  x = new_x;
+  y = new_y;
+}
   /**
    * @brief Getter method for the x coordinate
    * @param  none
    * @return double
    */
-  double WarehouseLocation::getX() {
-     return x;
- }
+double WarehouseLocation::getX() {
+  return x;
+}
   /**
    * @brief Getter method for y coordinate
    * @param  note
    * @return double
    */
-  double WarehouseLocation::getY() {
-    return y;
- }
+double WarehouseLocation::getY() {
+  return y;
+}
