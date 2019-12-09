@@ -15,7 +15,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "Butler.h"
 
 void Butler::Butler() {
-        /* can make a ros msg for location data */ 
+     /* can make a ros msg for location data */
       memset(homeLocation, 0, sizeof(homeLocation);
       memset(homeLocation, 0, sizeof(currentLocation);
       memset(homeLocation, 0, sizeof(pickUpLocation);
@@ -44,11 +44,12 @@ void Butler::Butler() {
   publishVelocity.publish(msg);
 
   /* Current Order Info */
-  ButlerOrderMsg currentOrder;        
+  ButlerOrderMsg currentOrder;
 }
 
 ButlerOrderMsg Butler::getOrder {
-        /* load order from order file : Call the get order function from order class */
+        /* load order from order file : 
+         Call the get order function from order class */
         Order newOrder;
         currentOrder = newOrder.getOrder();
         return currentOrder;
@@ -61,7 +62,7 @@ int* getCurrentLocation() {
 }
 
 int* getCurrentVelocity() {
-        /* subscribe to "/mobile_base/commands/velocity" */ 
+        /* subscribe to "/mobile_base/commands/velocity" */
         int* currentVelocity = new int[3]();
         return currentVelocity;
 }
@@ -69,9 +70,9 @@ int* getCurrentVelocity() {
 bool hasReachedDst() {
         currentLocation = this->getCurrentLocation();
         for (int i = 0; i < 3; ++i) {
-                if (currentLocation[i] != dropOffLocation[i] ) 
+                if (currentLocation[i] != dropOffLocation[i] )
                         return false;
-        }                
+        }
         return true;
 }
 void Butler::run {
@@ -82,13 +83,11 @@ void Butler::run {
   static tf::TransformBroadcaster br;
   tf::Transform transform;
 
-  while(ros::ok) {
+  while (ros::ok) {
     /* broadcast the transform */
     br.sendTransform(
     tf::StampedTransform(transform, ros::Time::now(), "world", "world"));
-
     ros::spinOnce()
     loop_rate.sleep();
   }
-
-} 
+}

@@ -13,11 +13,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * @brief Butler header file
  */
 
-#include<iostream>
+#ifndef INCLUDE_BUTLER_H_
+#define INCLUDE_BUTLER_H_
+
 #include <ros/ros.h>
+#include<iostream>
+#include<string>
+
 
 class Butler {
-  public:
+ public:
     /**
    * @brief Variable that defines current location of the robot
    */
@@ -41,7 +46,7 @@ class Butler {
     /**
      @brief Variable that defines which load object to transport
     */
-    string loadObject;
+    std::string loadObject;
     /**
      * @brief runs the butler agent
      * @param  none
@@ -67,3 +72,4 @@ class Butler {
      */
     int* getCurrentVelocity();
 };
+#endif    //   INCLUDE_BUTLER_H_
