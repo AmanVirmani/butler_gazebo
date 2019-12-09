@@ -19,7 +19,7 @@ The presentation for this project can be found [here](.).
 
 # Project Presentation Demo
 Presentation of the project can be found [here](https://docs.google.com/presentation/d/1mTpTO3ToKmhLyNpknvycvceg3DJquGKYsKFBesBz2Ys/edit?usp=sharing)
-Video Demo of the project [link] (https://drive.google.com/file/d/14qTYDipqx67uZgGsAohmteuUzysgYbOv/view?usp=sharing)
+Video Demo of the project [link](https://drive.google.com/file/d/14qTYDipqx67uZgGsAohmteuUzysgYbOv/view?usp=sharing)
 
 # Project Design
 
