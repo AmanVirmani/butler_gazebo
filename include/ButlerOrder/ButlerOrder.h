@@ -17,30 +17,35 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include <ros/ros.h>
 #include <iostream>
 #include <utility>
-#include "WarehouseLocation.h"
-#include "LocalMap.h"
+#include "WarehouseLocation/WarehouseLocation.h"
+#include "LocalMap/LocalMap.h"
+//#include <fstream>
 
+//using namespace std;
 class ButlerOrder {
  public:
    /**
    * @brief Variable that defines the FROM  location of the order.
    */
   static WarehouseLocation fromLoc;
-   /**
+  
+  /**
    * @brief Variable that defines the TO location of the order.
    */
   static WarehouseLocation toLoc;
- /**
+  
+  /**
    *@brief Constructor for the order; default location is set to zero.
    */
-
   ButlerOrder();
- /**
+  
+  /**
    * @brief Getter method for order
    * @param  LocalMap which carries all known bin values; used to retrieve 
    *         requests based on tags
-   * @return std::make_pair
+   * @param  string which represents the path of the order file to input orders from
+   * @return std::vector<std::make_pair<Warehouse,Warehouse>>
    */
-  std::pair<WarehouseLocation, WarehouseLocation> getOrder(LocalMap);
+  std::vector<std::pair<WarehouseLocation, WarehouseLocation>> getOrderFromFile(LocalMap mymap, std::string inputFile);
 };
 #endif  // INCLUDE_BUTLERORDER_H_

@@ -14,23 +14,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  */
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
-#include "Navigation.h"
+#include "Navigation/Navigation.h"
 
-   /**                                                               
-   * @brief  moves robot when no obstacle is present                
-   * @param  none                                                   
-   * @return none                                                   
-   */
 void Navigation::init(int argc, char** argv) {
   ros::init(argc, argv, "butler_navigation_node");
   auto n = ros::NodeHandle();
   ros::spinOnce();
 }
-  /**
-   * @brief  Getter method for checking if destination is reached   
-   * @param  current location and the destination of the robot      
-   * @return boolean giving whether destination is reached          
-   */                                                               
+
 bool Navigation::isDestinationReached
                          (double x_destination,  double y_destination) {
   // define a client for to send goal requests
@@ -39,13 +30,13 @@ bool Navigation::isDestinationReached
                     <move_base_msgs::MoveBaseAction> ac("move_base", true);
   // wait for the action server to come up
   while (!ac.waitForServer(ros::Duration(5.0))) {
-    ROS_INFO("Waiting for the move_base action server to come up");
+    ROS_INFO_STREAM("Waiting for the move_base action server to come up");
   }
   move_base_msgs::MoveBaseGoal goal;
   // set up the frame parameters
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp = ros::Time::now();
-  /* moving towards the goal*/
+  // moving towards the goal
   goal.target_pose.pose.position.x =  x_destination;
   goal.target_pose.pose.position.y =  y_destination;
   goal.target_pose.pose.position.z =  0.0;
@@ -53,14 +44,14 @@ bool Navigation::isDestinationReached
   goal.target_pose.pose.orientation.y = 0.0;
   goal.target_pose.pose.orientation.z = 0.0;
   goal.target_pose.pose.orientation.w = 1.0;
-  ROS_INFO("Sending goal location ...");
+  ROS_INFO_STREAM("Sending goal location ...");
   ac.sendGoal(goal);
   ac.waitForResult();
   if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-    ROS_INFO("You have reached the destination");
+    ROS_INFO_STREAM("You have reached the destination");
     return true;
   } else {
-    ROS_INFO("The robot failed to reach the destination");
+    ROS_INFO_STREAM("The robot failed to reach the destination");
     return false;
   }
 }

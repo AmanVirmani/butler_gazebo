@@ -14,37 +14,27 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 #include <ros/ros.h>
 #include <iostream>
-#include "ButlerOrder.h"
-  /**
-   * @brief Constructor for the order; default location is set to zero.
-   */
-  ButlerOrder::ButlerOrder() {
-    WarehouseLocation toLoc(0, 0);
-    WarehouseLocation fromLoc(0, 0);
-  }
-  /**
-   * @brief Getter method for order
-   * @param  LocalMap which carries all known bin values; used to retrieve 
-   *         requests based on tags
-   * @return std::make_pair
-   */
-  std::pair<WarehouseLocation, WarehouseLocation>
-                ButlerOrder::getOrder(LocalMap mymap) {
-    char from;
-    char to;
-    std::cout << "|-------------------------------|" << std::endl;
-    std::cout <<
-         "|ENTER FROM and TO locations from following options:"
-         << std::endl;
-    mymap.printLocTags();
-    std::cout << "|FROM: ";
-    std::cin >> from;
-    auto f = mymap.getLoc(from);
-    std::cout << f.getX() << " " << f.getY() << std::endl;
-    std::cout << "|TO: ";
-    std::cin >> to;
-    auto t = mymap.getLoc(to);
-    std::cout << t.getX() << " " << t.getY() << std::endl;
-    std::cout << std::endl;
-    return std::make_pair(f, t);
-  }
+#include <fstream>
+#include "ButlerOrder/ButlerOrder.h"
+
+using namespace std;
+ButlerOrder::ButlerOrder() {
+        WarehouseLocation toLoc(0, 0);
+        WarehouseLocation fromLoc(0, 0);
+}
+
+std::vector<std::pair<WarehouseLocation, WarehouseLocation>> ButlerOrder::getOrderFromFile(LocalMap mymap, std::string inputFile) {
+        ifstream orderFile;
+        orderFile.open(inputFile);
+        string orderString;
+        std::vector <pair <WarehouseLocation, WarehouseLocation>> orders;
+        while (!orderFile.eof()) {
+                getline(orderFile,orderString);
+                char from = orderString[0];
+                char to = orderString[1];
+                auto f = mymap.getLoc(from);
+                auto t = mymap.getLoc(to);
+                orders.push_back(std::make_pair(f, t));
+        }
+        return orders;
+}

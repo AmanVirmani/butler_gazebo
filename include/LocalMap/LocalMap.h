@@ -4,48 +4,54 @@
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*
- * @file WarehouseLocation.h
+ * @file LocalMap.h
  * @driver         Aman Virmani
  * @navigator      Sandra Tinta 
  * @design keeper  Mushty Sri Sai Kaushik
- * @brief WarehouseLocatio header file
+ * Created on 24 November 2019
+ * @brief LocalMap header file
  */
-#ifndef INCLUDE_WAREHOUSELOCATION_H_
-#define INCLUDE_WAREHOUSELOCATION_H_
+#ifndef INCLUDE_LOCALMAP_H_
+#define INCLUDE_LOCALMAP_H_
 
+#include <ros/ros.h>
 #include <iostream>
+#include <unordered_map>
+#include "WarehouseLocation/WarehouseLocation.h"
 
-class WarehouseLocation {
- private:
-   /**
-   * @brief Variable that defines the x coordinate of a warehouse locaiton.
-   */
-  double x;
-  /**
-   * @brief Variable that defines the y coordinate of a warehouse locaiton.
-   */
-  double y;
-
+class LocalMap {
  public:
- /**
-   * @brief Getter method for checking obstacle presence
-   * @param  double x an x coordinate
-   * @param  double y an y coordinate
-   * @return boolean giving obstacles presence
-   */
-  WarehouseLocation(double x, double y);
   /**
-   * @brief Getter method for the x coordinate
+   * @brief Variable that contains the known rack locations of the warehouse
+   */
+  std::unordered_map<char, WarehouseLocation> warehouse_layout;
+  /**
+   * @brief  prints all known tags locations
    * @param  none
-   * @return double
+   * @return none
    */
-  double getX();
+  void printLocTags();
+
+/**
+   * @brief  prints all known warehouse locations with coordinates
+   * @param  none
+   * @return none
+   */
+  void printMapLayout();
+
   /**
-   * @brief Getter method for y coordinate
-   * @param  note
-   * @return double
+   * @brief  initiaizes the local warehhouse map with known station locations
+   * @param  none
+   * @return none
    */
-  double getY();
+  void initLocalMap();
+ /**
+   * @brief  Returns a Warehouse Location based on the tag
+   * @param  char tad for the location station
+   * @return WarehouseLocation if location not found return home location
+   */
+
+  WarehouseLocation getLoc(char);
 };
-#endif  //  INCLUDE_WAREHOUSELOCATION_H_
+#endif  //  INCLUDE_LOCALMAP_H_
 

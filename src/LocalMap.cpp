@@ -12,16 +12,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * @brief LocalMap header file
  */
 
-#include "LocalMap.h"
-  /**
-   * @brief Variable that contains the known rack locations of the warehouse
-   */
+#include "LocalMap/LocalMap.h"
+
 std::unordered_map<char, WarehouseLocation> warehouse_layout;
-  /**
-   * @brief  initiaizes the local warehhouse map with known stattion locations
-   * @param  none
-   * @return none
-   */
+   
 void LocalMap::initLocalMap() {
   warehouse_layout.insert(std::make_pair('a', WarehouseLocation(-9.1, -4.1)));
   warehouse_layout.insert(std::make_pair('b', WarehouseLocation(-5.39, -4.89)));
@@ -35,11 +29,7 @@ void LocalMap::initLocalMap() {
   warehouse_layout.insert(std::make_pair('j', WarehouseLocation(7.0, -1.9)));
   warehouse_layout.insert(std::make_pair('o', WarehouseLocation(0.78, 0.15)));
 }
- /**
-   * @brief  prints all known warehouse locations with coordinates
-   * @param  none
-   * @return none
-   */
+   
 void LocalMap::printMapLayout() {
   std::unordered_map<char, WarehouseLocation>::iterator itr;
   for (itr = warehouse_layout.begin(); itr != warehouse_layout.end(); itr++) {
@@ -48,11 +38,7 @@ void LocalMap::printMapLayout() {
          " " << (itr->second).getY() << std::endl;
     }
 }
- /**
-   * @brief Prints all the available bin tags
-   * @param  none
-   * @return none
-   */
+   
 void LocalMap::printLocTags() {
   std::vector<char> ktag;
   ktag.reserve(warehouse_layout.size());
@@ -65,11 +51,7 @@ void LocalMap::printLocTags() {
   }
   std::cout << std::endl;
 }
- /**
-   * @brief  Returns a Warehouse Location based on the tag
-   * @param  char tad for the location station
-   * @return WarehouseLocation if location not found return home location
-   */
+
 WarehouseLocation LocalMap::getLoc(char tag) {
   auto search = warehouse_layout.find(tag);
   if ( search != warehouse_layout.end())
