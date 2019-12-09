@@ -49,12 +49,11 @@ roslaunch butler_gazebo view_navigation.launch
 ## Code Checks
 cppcheck
 ```
-cppcheck --std=c++11 $(find . -name \*.cpp -or -name \*.srv | grep -vE -e "^./
-build/" -e "^./results/")
+cppcheck --std=c++11 $(find . -name \*.cpp -or -name \*.srv -or -name \*.h  | grep -vE -e "^./build/" -e "^./results/")
 ```
 cpplint
 ```
- cpplint $(find . -name \*.cpp | grep -vE -e "^./build/" -e "^./results")
+cpplint $(find . -name \*.cpp -or -name \*.h | grep -vE -e "^./build/" -e "^./results")
 ```
 ## License
 [BSD-3](https://opensource.org/licenses/BSD-3-Clause)
