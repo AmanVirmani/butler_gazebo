@@ -64,6 +64,18 @@ roslaunch butler_gazebo view_navigation.launch
 ## Running the Test Suite
 
 ## Documentation Generation
+To install doxygen run the following command:
+```
+sudo apt-get install doxygen
+```
+Now from the cloned directory run:
+```
+doxygen doxygen
+```
+Generated doxygen files are in html format and you can find them in ./docs folder. With the following command
+```
+firefox docs/html/index.html
+```
 
 ## Known Issues/Limitations
 The turtlebot is used here to focus on the implementation, but for actual operation we need to model a robot that has the capability to actually pickup objects.
