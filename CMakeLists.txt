@@ -203,7 +203,7 @@ target_link_libraries(butler_gazebo ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_butler_gazebo.cpp)
+catkin_add_gtest(butler-test test/main.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
