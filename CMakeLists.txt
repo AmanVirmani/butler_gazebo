@@ -138,7 +138,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/butler_gazebo_node.cpp)
-add_executable(butler_gazebo src/ButlerDemo.cpp src/Navigation.cpp)
+add_executable(butler_gazebo src/ButlerDemo.cpp src/Navigation.cpp src/WarehouseLocation.cpp src/LocalMap.cpp src/ButlerOrder.cpp)
 target_link_libraries(butler_gazebo ${catkin_LIBRARIES})
 #add_dependencies(talker beginner_tutorials_generate_messages_cpp)
 ## Rename C++ executable without prefix
@@ -203,7 +203,7 @@ target_link_libraries(butler_gazebo ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_butler_gazebo.cpp)
+catkin_add_gtest(butler-test test/main.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
