@@ -1,0 +1,13 @@
+cpplint $(find . -name \*.cpp -or -name \*.h | grep -vE -e "^./build/" -e "^./results")
+Done processing ./include/LocalMap.h
+Done processing ./include/ButlerOrder.h
+Done processing ./include/Butler.h
+Done processing ./include/WarehouseLocation.h
+Done processing ./include/Navigation.h
+Done processing ./src/LocalMap.cpp
+Done processing ./src/ButlerOrder.cpp
+Done processing ./src/ButlerDemo.cpp
+Done processing ./src/butler.cpp
+Done processing ./src/WarehouseLocation.cpp
+Done processing ./src/Navigation.cpp
+
