@@ -1,0 +1,55 @@
+\href{https://travis-ci.org/stinta/butler_gazebo}{\tt } \href{https://coveralls.io/github/stinta/butler_gazebo?branch=master}{\tt } \href{https://opensource.org/licenses/BSD-3-Clause}{\tt }
+
+\subsection*{Overview}
+
+This project implements a material handling robot simulation inspired by an autonomous robot called “\+Butler” originally developed by Grey\+Orange which optimizes goods-\/to-\/\+Person transport. Our approach is to develop a Butler robot simulation in which the robot picks-\/up and delivers objects from and to known stations upon an unknown user or system generated order being issued. Assuming a environment map known at priori, our Butler robot uses the Turtle\+Bot robot as its base platform and uses its distance measurement sensor to dynamically avoid obstacles as it follows its trajectory for delivering object from the collection station to a destination station. The robot starts and ends its delivery cycle at a home or charging station location. The robotic system pre-\/plans a potential optimal trajectory for navigation. To show the successful pick-\/up and delivery of the objects by the robot, at the pickup location the Butler will publish a message indicating the pickup action and the object will disappear from the collection station; similarly, at the destination location the Butler will publish a message indicating the delivery action and the object will appear at the destination location.
+
+The presentation for this project can be found \href{.}{\tt here}.
+
+\subsection*{Team}
+
+
+\begin{DoxyItemize}
+\item {\bfseries Aman Virmani}\+:
+\item {\bfseries Mushty Sri Sai Kaushik} \+:
+\item {\bfseries Sandra Tinta} \+:
+\end{DoxyItemize}
+
+\subsection*{Project Design}
+
+The team followed the A\+IP process and pair programming. The A\+IP iteration actions are documented \href{https://docs.google.com/spreadsheets/d/1O8GisJ7VpNulYqH-gaPCvG_NAVHMwOyPO4F18fhpBL4/edit?ts=5ddb0c09#gid=0}{\tt here}. The overall project design followed Object-\/\+Oriented programming paradigm. The design is documented in the following \href{./UML/initial/ActivityDiagram.pdf/}{\tt Activity} and \href{./UML/initial/ClassDiagram.pdf}{\tt Class Hierarchy} U\+ML Diagrams. Planning and review notes during each development iteration can be found \href{https://docs.google.com/document/u/0/d/1aiRbswW5R_R5Iiowr5hDhnN0nU_4OwQu9OM1Oh6o9Pk/mobilebasic}{\tt here}
+
+\subsection*{Dependencies}
+
+\subsection*{Standard Install}
+
+\#\# Running the Simulation Demo 
+\begin{DoxyCode}
+1 roslaunch butler\_gazebo butler\_world.launch 
+2 roslaunch butler\_gazebo amcl\_demo.launch
+3 roslaunch butler\_gazebo view\_navigation.launch
+4 
+5 ./devel/lib/butler\_gazebo/butler\_gazebo
+\end{DoxyCode}
+ \subsection*{Running the Simulation Demo with Rosbag enabled}
+
+\subsection*{Running the Test Suite}
+
+\subsection*{Documentation Generation}
+
+\subsection*{Known Issues/\+Limitations}
+
+\subsection*{Code Checks}
+
+cppcheck 
+\begin{DoxyCode}
+1 cppcheck --std=c++11 $(find . -name \(\backslash\)*.cpp -or -name \(\backslash\)*.srv -or -name \(\backslash\)*.h  | grep -vE -e "^./build/" -e
+       "^./results/")
+\end{DoxyCode}
+ cpplint 
+\begin{DoxyCode}
+1 cpplint $(find . -name \(\backslash\)*.cpp -or -name \(\backslash\)*.h | grep -vE -e "^./build/" -e "^./results")
+\end{DoxyCode}
+ \subsection*{License}
+
+\href{https://opensource.org/licenses/BSD-3-Clause}{\tt B\+S\+D-\/3} 
