@@ -62,6 +62,18 @@ roslaunch butler_gazebo view_navigation.launch
 ```
 
 ## Running the Test Suite
+The instruction on how to build and run the test suite are as follows :
+
+# Building Test suite
+  ```
+  cd ~/catkin_ws/
+  source ./devel/setup.bash
+  catkin_make test
+  ```
+# Running Test suite
+  ```
+  catkin_make run_tests
+
 
 ## Documentation Generation
 To install doxygen run the following command:
