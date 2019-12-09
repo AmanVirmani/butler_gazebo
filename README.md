@@ -17,6 +17,10 @@ The presentation for this project can be found [here](.).
 - **Mushty Sri Sai Kaushik** :
 - **Sandra Tinta** :
 
+## Project Presentation Demo
+Presentation of the project can be found [here](https://docs.google.com/presentation/d/1mTpTO3ToKmhLyNpknvycvceg3DJquGKYsKFBesBz2Ys/edit?usp=sharing)
+Video Demo of the project[link](https://drive.google.com/file/d/14qTYDipqx67uZgGsAohmteuUzysgYbOv/view?usp=sharing)
+
 ## Project Design
 
 The team followed the AIP process and pair programming.  The AIP iteration actions are documented [here](https://docs.google.com/spreadsheets/d/1O8GisJ7VpNulYqH-gaPCvG_NAVHMwOyPO4F18fhpBL4/edit?ts=5ddb0c09#gid=0).  
@@ -25,12 +29,30 @@ Planning and review notes during each development iteration can be found [here](
 
 
 ## Dependencies
-
+- ROS Kinetic 
+To install follow this [link](http://wiki.ros.org/kinetic/Installation)
+- Ubuntu 16.04
+- Turtlebot packages 
+To install turtlebot, type the following:
+```
+sudo apt-get install ros-kinetic-turtlebot-gazebo 
+ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers
+```
 
 ## Standard Install
-
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+source devel/setup.bash
+cd src/
+git clone https://github.com/AmanVirmani/WalkerBot
+cd ..
+catkin_make
+```
 
 ## Running the Simulation Demo
+Type each of the given commands in a new terminal 
 ```
 roslaunch butler_gazebo butler_world.launch 
 roslaunch butler_gazebo amcl_demo.launch
@@ -38,13 +60,13 @@ roslaunch butler_gazebo view_navigation.launch
 
 ./devel/lib/butler_gazebo/butler_gazebo
 ```
-## Running the Simulation Demo with Rosbag enabled
 
 ## Running the Test Suite
 
 ## Documentation Generation
 
 ## Known Issues/Limitations
+The turtlebot is used here to focus on the implementation, but for actual operation we need to model a robot that has the capability to actually pickup objects.
 
 ## Code Checks
 cppcheck
